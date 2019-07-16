@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
+    <title>My First Flask</title>
 </head>
 
 <body>
-    <h1>hello world!</h1>
-    <img src="../static/hello.jpg" alt="photo" />
+    {% if signed_in %}
+    <h1>hello {{name}}!</h1>
+    {% else %}
+    <h1>Hello Stranger!</h1>
+    <button>Sign In</button>
+    <button>Sign Up</button>
+    {% endif %}
+    <img src="{{url_for('static', filename='hello.jpg')}}" alt="photo" />
 </body>
 
 </html>
