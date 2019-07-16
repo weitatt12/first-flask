@@ -4,7 +4,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    signed_in = False
+    return render_template('index.html', signed_in=signed_in)
+
+
+@app.route('/contact')
+def contact():
+    signed_in = False
+    return render_template('contact.html', signed_in=signed_in)
 
 
 # @app.route("/<name>")
@@ -16,10 +23,6 @@ def index():
 # @app.route("/another")
 # def show():
 #     return '<h1>Yo, Yo</h1>'
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
 
 
 if __name__ == '__main__':
